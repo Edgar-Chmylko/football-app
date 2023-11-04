@@ -51,12 +51,9 @@ export class FootballApiService {
   loadMatchHistory(teamId: number, leagueId: number) {
     let httpParams = new HttpParams()
       .append('team', teamId)
+      .append('league', leagueId)
       .append('season', this.currentYear)
       .append('last', 10);
-
-    if (leagueId) {
-      httpParams.append('league', leagueId);
-    }
 
     return this.httpClient.get<ApiMatchHistoryResponse>(
       this.environmentService.apiTeamFixturessUrl,
