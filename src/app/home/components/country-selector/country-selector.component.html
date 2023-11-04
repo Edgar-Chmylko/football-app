@@ -1,0 +1,7 @@
+<mat-button-toggle-group>
+  <ng-container *ngFor="let country of countries">
+    <mat-button-toggle [value]="country" (change)="onCountryChange($event)">
+      {{ country.name }}
+    </mat-button-toggle>
+  </ng-container>
+</mat-button-toggle-group>
