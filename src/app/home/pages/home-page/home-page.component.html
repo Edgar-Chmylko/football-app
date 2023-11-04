@@ -1,0 +1,9 @@
+<div class="container">
+  <app-country-selector
+    (selectedCountry)="onSelectedCountry($event)"
+  ></app-country-selector>
+  <app-league-standings-table
+    [_standings]="leagueStandings()"
+    [loading]="loading()"
+  ></app-league-standings-table>
+</div>
