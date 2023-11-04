@@ -1,0 +1,60 @@
+<ng-container *ngIf="loading; else content">
+  <app-loading></app-loading>
+</ng-container>
+
+<ng-template #content>
+  <table mat-table [dataSource]="matchHistory()" class="mat-elevation-z8">
+    <ng-container matColumnDef="homeTeamLogo">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let history">
+        <img
+          class="club-logo"
+          [src]="history.teams.home.logo"
+          [alt]="history.teams.home.name"
+        />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="homeTeam">
+      <th mat-header-cell *matHeaderCellDef>Home</th>
+      <td mat-cell *matCellDef="let history">
+        {{ history.teams.home.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="homeScore">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let history">
+        {{ history.score.fulltime.home }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="awayScore">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let history">
+        {{ history.score.fulltime.away }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="awayTeam">
+      <th mat-header-cell *matHeaderCellDef>Away</th>
+      <td mat-cell *matCellDef="let history">{{ history.teams.away.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="awayTeamLogo">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let history">
+        <img
+          class="club-logo"
+          [src]="history.teams.away.logo"
+          [alt]="history.teams.home.away"
+        />
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+  </table>
+
+  <app-button [context]="'Back'"></app-button>
+</ng-template>
