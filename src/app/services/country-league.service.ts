@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FootballApiService } from './football-api.service';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, map, tap } from 'rxjs';
 import { CountryLeague, Standing } from '../shared/models/models';
 import { Country } from '../home/components/country-selector/country-selector.component';
 

@@ -13,7 +13,7 @@ export interface CountryLeague {
   type: string;
 }
 
-export interface FootballTeam {
+export interface FootballClub {
   id: number;
   name: string;
   logo: string;
@@ -55,7 +55,7 @@ export interface LeagueStandings {
 
 export interface Standing {
   rank: number;
-  team: FootballTeam[];
+  team: FootballClub[];
   points: number;
   goalsDiff: number;
   form: string;
@@ -101,6 +101,6 @@ export interface MatchScore {
 }
 
 export interface MatchTeams {
-  away: FootballTeam;
-  home: FootballTeam;
+  away: FootballClub;
+  home: FootballClub;
 }
